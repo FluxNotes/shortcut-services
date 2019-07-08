@@ -1,0 +1,343 @@
+{
+    "basePath": "/api",
+    "schemes": [ "http" ],
+    "definitions": {
+        "DefaultResponse": {
+            "properties": {
+                "errors": {
+                    "items": {
+                        "properties": {
+                            "message": {
+                                "type": "string"
+                            },
+                            "path": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "message"
+                        ],
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "errors"
+            ],
+            "type": "object"
+        }
+    },
+    "host": "localhost:8080",
+    "info": {
+        "title": "Coze Health/Flux Notes Autocomplete API example",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/valueset": {
+            "get": {
+                "operationId": "valueset",
+                "parameters": [
+                    {
+                        "description": "value set name",
+                        "in": "query",
+                        "name": "valueset",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "fragment of valueset string",
+                        "in": "query",
+                        "name": "valueset_fragment",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returning candidate strings for valueset",
+                        "schema": {
+                            "items": {
+                                "properties": {
+                                    "codesystem": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "label": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "message"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "400": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "401": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "404": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "500": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "501": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {},
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    }
+                },
+                "summary": "Example API returning valueset",
+                "x-mojo-name": "valueset",
+                "x-mojo-to": "example#valueset"
+            },
+            "options": {
+                "operationId": "valueset",
+                "parameters": [
+                    {
+                        "description": "value set name",
+                        "in": "query",
+                        "name": "valueset",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "description": "fragment of valueset string",
+                        "in": "query",
+                        "name": "valueset_fragment",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returning candidate strings for valueset",
+                        "schema": {
+                            "items": {
+                                "properties": {
+                                    "codesystem": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "label": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "message"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "400": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "401": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "404": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "500": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "501": {
+                        "description": "Default response.",
+                        "schema": {
+                            "$ref": "#/definitions/DefaultResponse"
+                        },
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {},
+                        "headers": {
+                            "Access-Control-Allow-Origin": {
+                              "schema": {
+                                "type": "string",
+                                "default": "*"
+                              },
+                              "type": "string",
+                              "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+                            }
+                          }
+                    }
+                },
+                "summary": "Example API returning valueset",
+                "x-mojo-name": "valueset",
+                "x-mojo-to": "example#valueset"
+            }
+        }
+    },
+    "swagger": "2.0"
+}

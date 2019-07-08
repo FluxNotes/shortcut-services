@@ -1,0 +1,75 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Swagger Shortcut Service",
+    "description": "Shortcut Service REST API",
+    "contact": {
+      "url": "http://cozehealth.com/",
+      "email": ""
+    }
+  },
+  "servers": [
+    {
+      "url": "https://services.cozehealth.net:3000/api"
+    }
+  ],
+  "paths": {
+    "/diagnosis": {
+      "get": {
+        "summary": "Get matching diagnosis codes",
+        "description": "Return matching diagnosis codes",
+        "x-mojo-name": "diagnosis",
+        "x-mojo-to": "example#diagnosis",
+        "operationId": "diagnosis",
+        "parameters": [
+          {
+            "name": "diagnosis_fragment",
+            "in": "query",
+            "required": true,
+            "description": "fragment of diagnosis string",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+           "200": {
+            "description": "Returning candidate strings for diagnosis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "default": "*"
+                },
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          },
+          "404": {
+            "description": "Default response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "default": "*"
+                },
+                "description": "Setting this header to `*` allows all origins. This is handy for public REST APIs that don't require authentication. But, according to the HTTP spec, browsers *WILL NOT* send cookies if this header is `*`, regardless of what you set `Access-Control-Allow-Credentials` to.\n"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
